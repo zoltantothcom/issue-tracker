@@ -1,0 +1,60 @@
+@import '../variables.scss';
+
+.tags-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.tag {
+  background-color: lighten($info, 10%);
+  color: $light-primary;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem 0.4rem;
+  border-radius: 4px;
+  display: inline-flex;
+  font-size: 0.875rem;
+
+  &.inactive {
+    background-color: $light-tertiary;
+    border: 1px solid darken($light-tertiary, 20%);
+    color: $dark-secondary;
+  }
+}
+
+.tags-section {
+  margin-top: 1rem;
+}
+
+.tags-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tags-dropdown {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dropdown-tag {
+  padding: 0.25rem 0.5rem;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-tag:hover {
+  background-color: #d9d9d9;
+}
+
+.tag button {
+  background: none;
+  border: none;
+  color: $light-primary;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}

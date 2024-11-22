@@ -1,0 +1,35 @@
+@import '../variables.scss';
+
+.btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.large {
+  font-size: 1rem;
+}
+
+.neutral {
+  background-color: $light-tertiary;
+  border: 1px solid darken($light-tertiary, 20%);
+  color: $dark-secondary;
+}
+
+.positive {
+  background-color: $success;
+  color: $light-primary;
+}
+
+.negative {
+  background-color: $error;
+  color: $light-primary;
+}

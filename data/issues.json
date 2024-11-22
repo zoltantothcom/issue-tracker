@@ -16,5 +16,11 @@
     "title": "This is a bug",
     "text": "Error message not being displayed in the contact form.",
     "tags": ["lorem", "ipsum", "helis", "sapien"]
+  },
+  {
+    "id": "4",
+    "title": "Calculation comment",
+    "text": "The result is 1+4+6+7-5-3+8 and some more.",
+    "tags": ["varius", "semper", "libero"]
   }
 ]

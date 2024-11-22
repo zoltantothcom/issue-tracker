@@ -4,6 +4,7 @@ import Button from './Button';
 import ConfirmationModal from './ConfirmationModal';
 import IssueForm from './IssueForm';
 import Tag from './Tag';
+import useCalculation from '../hooks/useCalculation';
 import { Issue } from '../types/common';
 
 import '../styles/components/issue-block.scss';
@@ -20,6 +21,8 @@ interface IssueProps {
 const IssueBlock: FunctionComponent<IssueProps> = ({ issue, onEdit, onDelete, availableTags = [] }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const calculate = useCalculation();
 
   const handleConfirmDelete = () => {
     onDelete(issue.id);
@@ -43,7 +46,7 @@ const IssueBlock: FunctionComponent<IssueProps> = ({ issue, onEdit, onDelete, av
       ) : (
         <div className="issue-card">
           <h2 className="issue-title heading">{issue.title}</h2>
-          <p className="issue-text" dangerouslySetInnerHTML={{ __html: issue.text }} />
+          <p className="issue-text" dangerouslySetInnerHTML={{ __html: calculate(issue.text) }} />
           <div className="tags-container">
             {issue.tags.map((tag) => (
               <Tag key={tag}>{tag}</Tag>

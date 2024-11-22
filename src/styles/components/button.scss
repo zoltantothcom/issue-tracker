@@ -1,4 +1,5 @@
-@import '../variables.scss';
+@use 'sass:color';
+@use '../variables.scss' as vars;
 
 .btn {
   border: none;
@@ -19,17 +20,17 @@
 }
 
 .neutral {
-  background-color: $light-tertiary;
-  border: 1px solid darken($light-tertiary, 20%);
-  color: $dark-secondary;
+  background-color: vars.$light-tertiary;
+  border: 1px solid color.adjust(vars.$light-tertiary, $lightness: -20%);
+  color: vars.$dark-secondary;
 }
 
 .positive {
-  background-color: $success;
-  color: $light-primary;
+  background-color: vars.$success;
+  color: vars.$light-primary;
 }
 
 .negative {
-  background-color: $error;
-  color: $light-primary;
+  background-color: vars.$error;
+  color: vars.$light-primary;
 }

@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@use '../variables.scss' as vars;
 
 .modal-overlay {
   position: fixed;
@@ -14,7 +14,7 @@
 }
 
 .modal {
-  background: $light-primary;
+  background: vars.$light-primary;
   border-radius: 8px;
   padding: 2rem 1.25rem;
   text-align: center;

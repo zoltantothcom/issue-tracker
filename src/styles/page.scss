@@ -1,15 +1,16 @@
-@import './variables.scss';
-@import './reset.scss';
+@use 'sass:color';
+@use './variables.scss' as vars;
+@use './reset.scss';
 
 body {
-  background-color: $light-secondary;
-  font-family: $font-stack;
+  background-color: vars.$light-secondary;
+  font-family: vars.$font-stack;
   font-size: 16px;
   margin: 0;
 }
 
 a {
-  color: $info;
+  color: vars.$info;
 }
 
 .heading {
@@ -18,9 +19,9 @@ a {
 }
 
 .issue-tracker {
-  background-color: $light-secondary;
-  color: $dark-primary;
-  font-family: $font-stack;
+  background-color: vars.$light-secondary;
+  color: vars.$dark-primary;
+  font-family: vars.$font-stack;
   margin: auto;
   max-width: 800px;
   min-height: 100vh;
@@ -28,9 +29,9 @@ a {
 
   .issue-header {
     align-items: center;
-    background-color: $dark-primary;
+    background-color: vars.$dark-primary;
     border-radius: 0 0 8px 8px;
-    color: $light-primary;
+    color: vars.$light-primary;
     display: flex;
     gap: 0.75rem;
     justify-content: space-between;
@@ -45,7 +46,7 @@ a {
 }
 
 .divider {
-  color: $light-tertiary;
+  color: vars.$light-tertiary;
   margin: 2rem 0 1.75rem;
 }
 
@@ -56,7 +57,7 @@ a {
 }
 
 .icon-btn {
-  background: lighten($dark-tertiary, 5%);
+  background: color.adjust(vars.$dark-tertiary, $lightness: 5%);
   border-radius: 4px;
   border: 0;
   cursor: pointer;
@@ -65,16 +66,16 @@ a {
   align-items: center;
 
   &.active {
-    background: darken($light-primary, 15%);
+    background: color.adjust(vars.$light-primary, $lightness: -15%);
 
     svg {
-      fill: $dark-secondary;
+      fill: vars.$dark-secondary;
     }
   }
 
   svg {
     width: 20px;
     height: 20px;
-    fill: $light-primary;
+    fill: vars.$light-primary;
   }
 }

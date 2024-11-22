@@ -1,8 +1,9 @@
-@import '../variables.scss';
+@use 'sass:color';
+@use '../variables.scss' as vars;
 
 .filter-container {
-  background-color: $light-primary;
-  border: 1px solid darken($light-tertiary, 10%);
+  background-color: vars.$light-primary;
+  border: 1px solid color.adjust(vars.$light-tertiary, $lightness: -10%);
   border-radius: 8px;
   margin-bottom: 1rem;
   padding: 1rem;

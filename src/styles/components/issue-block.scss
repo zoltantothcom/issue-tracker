@@ -1,4 +1,5 @@
-@import '../variables.scss';
+@use 'sass:color';
+@use '../variables.scss' as vars;
 
 .issue-list {
   margin-bottom: 1rem;
@@ -8,14 +9,14 @@
 }
 
 .issue-card {
-  background-color: $light-primary;
-  border: 1px solid darken($light-tertiary, 10%);
+  background-color: vars.$light-primary;
+  border: 1px solid color.adjust(vars.$light-tertiary, $lightness: -10%);
   border-radius: 8px;
   padding: 0 1.25rem 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .issue-title {
-    border-bottom: 1px solid lighten($dark-tertiary, 50%);
+    border-bottom: 1px solid color.adjust(vars.$dark-tertiary, $lightness: 50%);
     font-size: 1rem;
     font-weight: 600;
     margin: 1rem 0;
@@ -33,10 +34,10 @@
   }
 
   .input {
-    border: 1px solid lighten($dark-tertiary, 33%);
+    border: 1px solid color.adjust(vars.$dark-tertiary, $lightness: 33%);
     border-radius: 4px;
     display: flex;
-    font: normal 1rem $font-stack;
+    font: normal 1rem vars.$font-stack;
     margin-top: 1.25rem;
     width: 100%;
     padding: 0.5rem;

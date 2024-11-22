@@ -1,4 +1,5 @@
-@import '../variables.scss';
+@use 'sass:color';
+@use '../variables.scss' as vars;
 
 .tags-container {
   display: flex;
@@ -8,8 +9,8 @@
 }
 
 .tag {
-  background-color: lighten($info, 10%);
-  color: $light-primary;
+  background-color: color.adjust(vars.$info, $lightness: 10%);
+  color: vars.$light-primary;
   cursor: pointer;
   font-weight: 500;
   padding: 0.25rem 0.5rem 0.4rem;
@@ -18,15 +19,15 @@
   font-size: 0.875rem;
 
   &.inactive {
-    background-color: $light-tertiary;
-    border: 1px solid darken($light-tertiary, 20%);
-    color: $dark-secondary;
+    background-color: vars.$light-tertiary;
+    border: 1px solid color.adjust(vars.$light-tertiary, $lightness: -20%);
+    color: vars.$dark-secondary;
   }
 
   button {
     background: none;
     border: none;
-    color: $light-primary;
+    color: vars.$light-primary;
     margin-left: 0.5rem;
     cursor: pointer;
   }

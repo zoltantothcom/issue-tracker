@@ -58,9 +58,9 @@ a {
 .icon-btn {
   background: lighten($dark-tertiary, 5%);
   border-radius: 4px;
-  border: 0px solid $light-tertiary;
+  border: 0;
   cursor: pointer;
-  padding: 8px;
+  padding: 7.5px;
   display: flex;
   align-items: center;
 

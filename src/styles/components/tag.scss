@@ -22,6 +22,14 @@
     border: 1px solid darken($light-tertiary, 20%);
     color: $dark-secondary;
   }
+
+  button {
+    background: none;
+    border: none;
+    color: $light-primary;
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
 }
 
 .tags-section {
@@ -31,30 +39,4 @@
 .tags-input {
   display: flex;
   gap: 0.5rem;
-}
-
-.tags-dropdown {
-  margin-top: 0.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.dropdown-tag {
-  padding: 0.25rem 0.5rem;
-  background-color: #f0f0f0;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.dropdown-tag:hover {
-  background-color: #d9d9d9;
-}
-
-.tag button {
-  background: none;
-  border: none;
-  color: $light-primary;
-  margin-left: 0.5rem;
-  cursor: pointer;
 }

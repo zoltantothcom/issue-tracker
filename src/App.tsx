@@ -1,8 +1,10 @@
 import { FunctionComponent, useState, useEffect, useRef } from 'react';
 
 import Button from './components/Button';
+import Filter from './components/Filter';
 import IssueBlock from './components/IssueBlock';
 import IssueForm from './components/IssueForm';
+import FilterIcon from './images/filter.svg?react';
 import { DataService } from './services/data';
 import { Issue } from './types/common';
 
@@ -11,6 +13,8 @@ import './styles/page.scss';
 const App: FunctionComponent = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
   const [tags, setTags] = useState<string[]>([]);
+  const [filteredIssues, setFilteredIssues] = useState<Issue[]>([]);
+  const [showFilter, setShowFilter] = useState(false);
 
   const dataService = new DataService();
 
@@ -20,6 +24,7 @@ const App: FunctionComponent = () => {
   useEffect(() => {
     dataService.fetchComments().then((data: Issue[]) => {
       setIssues(data);
+      setFilteredIssues(data);
       setTags([...new Set(data.flatMap((issue: Issue) => issue.tags))]);
     });
   }, []);
@@ -27,6 +32,14 @@ const App: FunctionComponent = () => {
   // this is useful to scroll to form when the page is really long
   const scrollToBottom = () => {
     footerRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleFilter = (selectedTags: string[]) => {
+    if (selectedTags.length === 0) {
+      setFilteredIssues(issues); // Show all issues if no tags are selected
+    } else {
+      setFilteredIssues(issues.filter((issue) => selectedTags.every((tag) => issue.tags.includes(tag))));
+    }
   };
 
   const handleDelete = (id: string) => {
@@ -59,10 +72,19 @@ const App: FunctionComponent = () => {
     <div className="issue-tracker">
       <header className="issue-header">
         <h1 className="heading">Issue Tracker</h1>
+        <button onClick={() => setShowFilter((prev) => !prev)} className={`icon-btn ${showFilter ? 'active' : ''}`}>
+          <FilterIcon />
+        </button>
         <Button className="positive" label="New Issue" large onClick={scrollToBottom} />
       </header>
+      {showFilter && (
+        <>
+          <Filter availableTags={tags} onFilter={handleFilter} />
+          <hr className="divider" />
+        </>
+      )}
       <div className="issue-list">
-        {issues.map((issue) => (
+        {filteredIssues.map((issue) => (
           <IssueBlock
             key={issue.id}
             issue={issue}

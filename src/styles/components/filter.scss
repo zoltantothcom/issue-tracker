@@ -1,0 +1,31 @@
+@import '../variables.scss';
+
+.filter-container {
+  background-color: $light-primary;
+  border: 1px solid darken($light-tertiary, 10%);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-title {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+
+  input {
+    margin-right: 5px;
+  }
+}

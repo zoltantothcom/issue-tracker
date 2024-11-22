@@ -13,6 +13,7 @@ a {
 }
 
 .heading {
+  flex-grow: 1;
   font-weight: 500;
 }
 
@@ -26,12 +27,13 @@ a {
   padding: 0 1rem;
 
   .issue-header {
-    border-radius: 0 0 8px 8px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: $dark-primary;
+    border-radius: 0 0 8px 8px;
     color: $light-primary;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
     margin-bottom: 1rem;
     padding: 1rem;
 
@@ -51,4 +53,28 @@ a {
   font-size: 0.75rem;
   padding-bottom: 2rem;
   text-align: center;
+}
+
+.icon-btn {
+  background: lighten($dark-tertiary, 5%);
+  border-radius: 4px;
+  border: 0px solid $light-tertiary;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+
+  &.active {
+    background: darken($light-primary, 15%);
+
+    svg {
+      fill: $dark-secondary;
+    }
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: $light-primary;
+  }
 }
